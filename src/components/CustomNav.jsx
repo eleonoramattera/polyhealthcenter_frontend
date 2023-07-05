@@ -6,6 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import polyhealthlogo from "../assets/img/polyhealthlogo.jpg";
 import { BiSolidUser } from "react-icons/bi";
+import { FaSearch } from "react-icons/fa";
 
 function CustomNav() {
   return (
@@ -18,20 +19,22 @@ function CustomNav() {
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0 " style={{ maxHeight: "100px" }} navbarScroll>
             <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
+            <Nav.Link href="#action2">Prenotazioni</Nav.Link>
             <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="#" disabled>
+            {/*<Nav.Link href="#" disabled>
               Link
-            </Nav.Link>
+             </Nav.Link>*/}
           </Nav>
           <Form className="d-flex">
             <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />
-            <Button variant="outline-success">Search</Button>
+            <Button style={{ backgroundColor: "#8effa9", border: "1px solid #8effa9", color: "black" }}>
+              <FaSearch />
+            </Button>
           </Form>
           <Nav>
             <BiSolidUser style={{ color: "#8effa9", fontSize: "30px", marginLeft: "10px" }} />
