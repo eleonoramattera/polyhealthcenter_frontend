@@ -36,9 +36,12 @@ function CustomNav() {
               <FaSearch />
             </Button>
           </Form>
-          <Nav>
-            <BiSolidUser style={{ color: "#8effa9", fontSize: "30px", marginLeft: "10px" }} />
-          </Nav>
+
+          <BiSolidUser style={{ color: "#8effa9", fontSize: "30px", marginLeft: "10px" }} />
+          <NavDropdown id="navbarScrollingDropdown">
+            <NavDropdown.Item href="#action3">Registrazione</NavDropdown.Item>
+            <NavDropdown.Item href="#action4">Login</NavDropdown.Item>
+          </NavDropdown>
         </Navbar.Collapse>
       </Container>
     </Navbar>
