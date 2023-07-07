@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
+import { Link, Navigate } from "react-router-dom";
 /*import { SetTokenType, setToken } from "../redux/actions/UserActions";*/
 
 function Login() {
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [logged, setLogged] = useState(false);
   const handleLogin = (e) => {
     const url = "http://localhost:8080/api/auth/login";
     var dataObj = {
@@ -40,6 +42,10 @@ function Login() {
     // Logica di autenticazione qui...
   };
 
+  if (logged) {
+    return <Navigate to="/" />;
+  }
+
   return (
     <Container className="login-container mt-5">
       <h1 className="login-title">Login</h1>
@@ -66,7 +72,7 @@ function Login() {
           />
         </Form.Group>
 
-        <Button variant="primary" type="submit" className="login-button">
+        <Button variant="primary" type="submit" className="login-button" onClick={console.log("loggato")}>
           Login
         </Button>
       </Form>

@@ -1,18 +1,26 @@
-import React, { useState } from "react";
-import { Container, Form, Button } from "react-bootstrap";
+import { useState } from "react";
+import { Button, Col, Row } from "react-bootstrap";
+import { Link, Navigate } from "react-router-dom";
+import { Form } from "react-bootstrap";
 
-function Registrazione() {
+// const URL = "http://localhost:8080/api/auth/signin"; // <--- TODO: da verificare
+const URL = "http://localhost:8080/api/auth/register";
+
+const Registrazione = () => {
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
-  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [registered, setRegistered] = useState(false);
   const [roles, setRoles] = useState([]);
 
-  const handleRegister = (e) => {
-    const url = "http://localhost:8080/api/auth/register";
-    const postData = {
-      name: name,
+  const handleSubmit = async (event) => {
+    // prevent refresh
+    event.preventDefault();
+    // loading body for sign in
+    const bodyRegistration = {
+      firstname: name,
       lastname: lastname,
       username: username,
       email: email,
@@ -20,101 +28,126 @@ function Registrazione() {
       roles: roles,
     };
 
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(postData),
-    })
-      .then((response) => console.log("FETCH:" + (response.ok ? "ok" : "faild")))
-      // .then((data) => {
-      //   console.log(data); // Stampa la risposta dal server
-      //   // Esegui altre azioni a seguito della chiamata POST
-      // })
-      .catch((error) => {
-        console.error(error);
+    // sent sign in credential
+    try {
+      const response = await fetch(URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(bodyRegistration),
       });
 
-    e.preventDefault();
-    // Logica di registrazione qui...
+      if (response.ok) {
+        setRegistered(true);
+        alert(`Registrazione avvenuta corretamente, accedi subito all'area utenti ${name} ${lastname}!`);
+      } else {
+        alert(`errore durante il la registrazione, response status: ${response.status}`);
+      }
+    } catch (error) {
+      alert(`Non sta funzionando la registrazione, chiedere assistenza: ${error}`);
+    }
   };
 
+  if (registered) {
+    return <Navigate to="/login" />;
+  }
+
   return (
-    <Container className="register-container mt-5">
-      <h1 className="register-title">Register</h1>
-      <Form onSubmit={handleRegister}>
-        <Form.Group controlId="formName">
-          <Form.Label className="register-label">Name</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="register-input"
-          />
-        </Form.Group>
-
-        <Form.Group controlId="formLastname">
-          <Form.Label className="register-label">Lastname</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter lastname"
-            value={lastname}
-            onChange={(e) => setLastname(e.target.value)}
-            className="register-input"
-          />
-        </Form.Group>
-
-        <Form.Group controlId="formUsername">
-          <Form.Label className="register-label">Username</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="register-input"
-          />
-        </Form.Group>
-
-        <Form.Group controlId="formEmail">
-          <Form.Label className="register-label">Email</Form.Label>
-          <Form.Control
-            type="email"
-            placeholder="Enter email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="register-input"
-          />
-        </Form.Group>
-
-        <Form.Group controlId="formPassword">
-          <Form.Label className="register-label">Password</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="register-input"
-          />
-        </Form.Group>
-
-        <Form.Group controlId="formRoles">
-          <Form.Label className="register-label">Roles</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter roles (comma-separated)"
-            value={roles}
-            onChange={(e) => setRoles(e.target.value.split(","))}
-            className="register-input"
-          />
-        </Form.Group>
-
-        <Button variant="primary" type="submit" className="register-button">
-          Register
-        </Button>
-      </Form>
-    </Container>
+    <Row className="signInBg">
+      <Col className="d-flex flex-column flex-lg-row align-items-center">
+        <div className="loginImgComponent d-flex align-items-center justify-content-center"></div>
+        <form
+          className="formComponent formComponentSignIn d-flex flex-column align-items-center align-content-center justify-content-center "
+          onSubmit={handleSubmit}>
+          <div>
+            <label className="d-block" htmlFor="firstname">
+              Nome:
+            </label>
+            <input
+              className="my-3 p-2"
+              type="firstname"
+              placeholder="inserisci nome"
+              id="firstname"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div>
+            <label className="d-block" htmlFor="lastname">
+              Cognome:
+            </label>
+            <input
+              className="my-3 p-2"
+              type="lastname"
+              placeholder="inserisci cognome"
+              id="lastname"
+              value={lastname}
+              onChange={(e) => setLastname(e.target.value)}
+            />
+          </div>
+          <div>
+            <label className="d-block" htmlFor="username">
+              Nome Utente:
+            </label>
+            <input
+              className="my-3 p-2"
+              type="text"
+              placeholder="inserisci username"
+              id="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div>
+            <label className="d-block" htmlFor="email">
+              Email:
+            </label>
+            <input
+              className="my-3 p-2"
+              type="text"
+              placeholder="inserisci email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div>
+            <label className="d-block" htmlFor="password">
+              Password:
+            </label>
+            <input
+              className="my-3 p-2"
+              type="password"
+              placeholder="inserisci password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <Form.Group controlId="formRoles">
+            <Form.Label className="register-label">Roles</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter roles (comma-separated)"
+              value={roles}
+              onChange={(e) => setRoles(e.target.value.split(","))}
+              className="register-input"
+            />
+          </Form.Group>
+          <Button type="submit" className="log_reg_Button">
+            Registrati
+          </Button>
+          <p>
+            Sei già registrato?
+            <Link to={"/"}>
+              <span className="logIn">Clicca qui</span>
+            </Link>
+          </p>
+        </form>
+      </Col>
+    </Row>
   );
-}
+};
+
 export default Registrazione;
