@@ -7,8 +7,12 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import polyhealthlogo from "../assets/img/polyhealthlogo.jpg";
 import { BiSolidUser } from "react-icons/bi";
 import { FaSearch } from "react-icons/fa";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 function CustomNav() {
+  const location = useLocation();
+  console.log("LOCATION", location);
+
   return (
     <Navbar expand="lg" id="mynav" style={{ backgroundColor: "#2b5453" }}>
       <Container fluid>
@@ -18,8 +22,12 @@ function CustomNav() {
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0 " style={{ maxHeight: "100px" }} navbarScroll>
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Prenotazioni</Nav.Link>
+            <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} to="/">
+              Home
+            </Link>
+            <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} to="/prenotazioni">
+              Prenotazini
+            </Link>
             <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
@@ -39,8 +47,12 @@ function CustomNav() {
 
           <BiSolidUser style={{ color: "#8effa9", fontSize: "30px", marginLeft: "10px" }} />
           <NavDropdown id="navbarScrollingDropdown">
-            <NavDropdown.Item href="#action3">Registrazione</NavDropdown.Item>
-            <NavDropdown.Item href="#action4">Login</NavDropdown.Item>
+            <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} to="/registrazione">
+              Registrazione
+            </Link>
+            <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} to="/login">
+              Login
+            </Link>
           </NavDropdown>
         </Navbar.Collapse>
       </Container>
