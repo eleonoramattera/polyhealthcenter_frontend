@@ -17,7 +17,7 @@ function CustomNav() {
     <Navbar expand="lg" id="mynav" style={{ backgroundColor: "#2b5453" }}>
       <Container fluid>
         <Navbar.Brand href="#">
-          <img src={polyhealthlogo} alt="logo meteo" style={{ width: "200px", marginTop: "20px" }} />
+          <img src={polyhealthlogo} alt="logo" style={{ width: "200px", marginTop: "20px" }} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -26,7 +26,7 @@ function CustomNav() {
               Home
             </Link>
             <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} to="/prenotazioni">
-              Prenotazini
+              Prenotazioni
             </Link>
             <NavDropdown title="Link" id="navbarScrollingDropdown">
               <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
