@@ -6,6 +6,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Registrazione from "./components/Registrazione.jsx";
 import Login from "./components/Login.jsx";
 import Home from "./components/Home.jsx";
+import ChiSiamo from "./components/ChiSiamo";
+import Terapie from "./components/Terapie";
+import Prenotazioni from "./components/Prenotazioni";
+import Container from "react-bootstrap/Container";
+import Cazzone from "./components/Cazzone";
 
 function App() {
   return (
@@ -14,10 +19,13 @@ function App() {
         <CustomNav />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="prenotazioni" element={<Prenotazioni />} />
           <Route path="/registrazione" element={<Registrazione />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/chisiamo" element={<ChiSiamo />} />
+          <Route path="/terapie" element={<Terapie />} />
         </Routes>
-
+        <Cazzone />
         <Footer />
       </BrowserRouter>
     </div>

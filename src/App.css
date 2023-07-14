@@ -65,3 +65,18 @@
 .nav-item.show.dropdown {
   height: 20px;
 }
+
+.accordion-button::after {
+  width: 0;
+}
+
+.pSectionCounter {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+.leafleat-container {
+  background-color: red;
+  height: 200px;
+}
