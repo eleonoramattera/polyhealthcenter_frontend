@@ -8,6 +8,7 @@ import Alert from "react-bootstrap/Alert";
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
 import SectionCounter from "./SectionCounter.jsx";
+import Mappa from "./Mappa.jsx";
 
 function Home() {
   const [terapie, setTerapie] = useState([]); // 1
@@ -103,6 +104,12 @@ function Home() {
               Scopri tutte le terapie
             </Link>
           </p>
+
+          <h3 className="mt-5">DOVE SIAMO</h3>
+          <Mappa />
+          <Link to="/dovesiamo" className="text-dark" style={{ fontWeight: "bold" }}>
+            Scopri di più
+          </Link>
         </Col>
       </Row>
     </Container>
