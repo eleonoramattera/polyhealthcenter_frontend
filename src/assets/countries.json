@@ -1,0 +1,198 @@
+[
+  {
+    "id": 1,
+    "lat": 42.1256317,
+    "long": 13.6362715,
+    "comune": "L'Aquila",
+    "regione": "Abruzzo"
+  },
+  {
+    "id": 2,
+    "lat": 40.6372,
+    "long": 15.8022,
+    "comune": "Potenza",
+    "regione": "Basilicata"
+  },
+  {
+    "id": 3,
+    "lat": 39.298263,
+    "long": 16.253736,
+    "comune": "Cosenza",
+    "regione": "Calabria"
+  },
+  {
+    "id": 4,
+    "lat": 38.1113006,
+    "long": 15.6472914,
+    "comune": "Reggio Calabria",
+    "regione": "Calabria"
+  },
+  {
+    "id": 5,
+    "lat": 40.932083,
+    "long": 14.824365,
+    "comune": "Avellino",
+    "regione": "Campania"
+  },
+  {
+    "id": 6,
+    "lat": 40.8517746,
+    "long": 14.2681244,
+    "comune": "Napoli",
+    "regione": "Campania"
+  },
+  {
+    "id": 7,
+    "lat": 40.6824408,
+    "long": 14.7680961,
+    "comune": "Salerno",
+    "regione": "Campania"
+  },
+  {
+    "id": 8,
+    "lat": 44.494887,
+    "long": 11.3426163,
+    "comune": "Bologna",
+    "regione": "Emilia Romagna"
+  },
+  {
+    "id": 9,
+    "lat": 44.2227398,
+    "long": 12.0407312,
+    "comune": "Forlì",
+    "regione": "Emilia Romagna"
+  },
+  {
+    "id": 10,
+    "lat": 46.071067,
+    "long": 13.234579,
+    "comune": "Udine",
+    "regione": "Friuli Venezia Giulia"
+  },
+  {
+    "id": 11,
+    "lat": 41.641443,
+    "long": 13.352147,
+    "comune": "Frosinone",
+    "regione": "Lazio"
+  },
+  {
+    "id": 12,
+    "lat": 41.9027835,
+    "long": 12.4963655,
+    "comune": "Roma",
+    "regione": "Lazio"
+  },
+  {
+    "id": 13,
+    "lat": 44.40565,
+    "long": 8.946256,
+    "comune": "Genova",
+    "regione": "Liguria"
+  },
+  {
+    "id": 14,
+    "lat": 45.541553,
+    "long": 10.211802,
+    "comune": "Brescia",
+    "regione": "Lombardia"
+  },
+  {
+    "id": 15,
+    "lat": 45.156417,
+    "long": 10.791375,
+    "comune": "Mantova",
+    "regione": "Lombardia"
+  },
+  {
+    "id": 16,
+    "lat": 45.4654219,
+    "long": 9.1859243,
+    "comune": "Milano",
+    "regione": "Lombardia"
+  },
+  {
+    "id": 17,
+    "lat": 43.6158299,
+    "long": 13.518915,
+    "comune": "Ancona",
+    "regione": "Marche"
+  },
+  {
+    "id": 18,
+    "lat": 42.000533,
+    "long": 14.995284,
+    "comune": "Termoli",
+    "regione": "Molise"
+  },
+  {
+    "id": 19,
+    "lat": 45.070312,
+    "long": 7.6868565,
+    "comune": "Torino",
+    "regione": "Piemonte"
+  },
+  {
+    "id": 20,
+    "lat": 40.351515,
+    "long": 18.175016,
+    "comune": "Lecce",
+    "regione": "Puglia"
+  },
+  {
+    "id": 21,
+    "lat": 40.557952,
+    "long": 8.319295,
+    "comune": "Alghero",
+    "regione": "Sardegna"
+  },
+  {
+    "id": 22,
+    "lat": 37.5078772,
+    "long": 15.0830304,
+    "comune": "Catania",
+    "regione": "Sicilia"
+  },
+  {
+    "id": 23,
+    "lat": 38.1156879,
+    "long": 13.3612671,
+    "comune": "Palermo",
+    "regione": "Sicilia"
+  },
+  {
+    "id": 24,
+    "lat": 43.463284,
+    "long": 11.879634,
+    "comune": "Arezzo",
+    "regione": "Toscana"
+  },
+  {
+    "id": 25,
+    "lat": 46.074779,
+    "long": 11.121749,
+    "comune": "Trento",
+    "regione": "Trentino Alto Adige"
+  },
+  {
+    "id": 26,
+    "lat": 43.110717,
+    "long": 12.390828,
+    "comune": "Perugia",
+    "regione": "Umbria"
+  },
+  {
+    "id": 27,
+    "lat": 45.734955,
+    "long": 7.313076,
+    "comune": "Aosta",
+    "regione": "Valle D'Aosta"
+  },
+  {
+    "id": 28,
+    "lat": 45.406435,
+    "long": 11.876761,
+    "comune": "Padova",
+    "regione": "Veneto"
+  }
+]

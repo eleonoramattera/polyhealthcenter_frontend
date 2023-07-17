@@ -38,12 +38,6 @@ function CustomNav() {
               Link
              </Nav.Link>*/}
           </Nav>
-          <Form className="d-flex">
-            <Form.Control type="search" placeholder="Search" className="me-2" aria-label="Search" />
-            <Button style={{ backgroundColor: "#8effa9", border: "1px solid #8effa9", color: "black" }}>
-              <FaSearch />
-            </Button>
-          </Form>
 
           <BiSolidUser style={{ color: "#8effa9", fontSize: "30px", marginLeft: "10px" }} />
           <NavDropdown id="navbarScrollingDropdown">
