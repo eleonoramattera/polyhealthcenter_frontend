@@ -1,10 +1,11 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import UserReducer from "../reducers/UserReducer";
+import { combineReducers, configureStore } from "@reduxjs/toolkit"; //funzione che serve a creare store
+
+import userReducer from "../reducers/userReducer";
 
 const bigReducer = combineReducers({
-  user: UserReducer,
+  user: userReducer,
 });
-
+//configure store ha come patamentro oggetto
 const store = configureStore({
   reducer: bigReducer,
 });
