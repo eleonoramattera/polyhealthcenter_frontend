@@ -28,26 +28,30 @@ function CustomNav() {
             <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} to="/prenotazioni">
               Prenotazioni
             </Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
+            {/* <NavDropdown title="About Us" id="navbarScrollingDropdown">
+              <NavDropdown.Item href="#action3">Chi Siamo</NavDropdown.Item>
+              <NavDropdown.Item href="#action4">Dove Siamo</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action5">Something else here</NavDropdown.Item>
             </NavDropdown>
-            {/*<Nav.Link href="#" disabled>
+            <Nav.Link href="#" disabled>
               Link
              </Nav.Link>*/}
           </Nav>
-
-          <BiSolidUser style={{ color: "#8effa9", fontSize: "30px", marginLeft: "10px" }} />
-          <NavDropdown id="navbarScrollingDropdown">
-            <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} to="/registrazione">
-              Registrazione
-            </Link>
-            <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} to="/login">
-              Login
-            </Link>
-          </NavDropdown>
+          <Nav className=" my-2 my-lg-0 " style={{ maxHeight: "100px" }} navbarScroll>
+            <BiSolidUser style={{ color: "#8effa9", fontSize: "30px", marginLeft: "10px" }} />
+            <NavDropdown id="navbarScrollingDropdown">
+              <div>
+                {/*className={`nav-link ${location.pathname === "/" ? "active" : ""}`}*/}
+                <Link className="text-dark text-decoration-none ms-4 " to="/registerpage">
+                  Registrazione
+                </Link>
+              </div>
+              <Link className="text-dark text-decoration-none ms-4" to="/login">
+                Login
+              </Link>
+            </NavDropdown>
+          </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
