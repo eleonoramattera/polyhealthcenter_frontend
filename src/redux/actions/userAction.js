@@ -18,13 +18,14 @@ export function regisrazioneUser(input) {
       if (response.ok) {
         console.log(response);
         window.location.href = "/login";
+      } else if (response.status === 400) {
+        alert("EMAIL O PASSWORD GIA' ESISTENTE");
       }
     } catch (error) {
-      alert("testComment", error);
+      alert("Errore con la registrazione", error);
     }
   };
 }
-
 export function loginUser(input) {
   return async (dispatch) => {
     try {
@@ -35,49 +36,22 @@ export function loginUser(input) {
         },
         body: JSON.stringify(input),
       });
-      console.log(response);
       if (response.ok) {
         const data = await response.json();
-        const token = data.accessToken;
-        const username = data.username;
-        console.log(data, " oooooooooooooooole");
-        alert("loggato");
         dispatch({
           type: ADD_TOKEN,
-          payload: token,
-        });
-        dispatch({
-          type: ADD_USERNAME,
-          payload: username,
-        });
-        window.location.href = "/";
+          payload: data.accessToken,
+        }) &&
+          dispatch({
+            type: ADD_USERNAME,
+            payload: data.username,
+          });
+        window.location.href = "http://localhost:3000/";
+      } else if (response.status === 500) {
+        alert("Email o Password errati");
       }
     } catch (error) {
-      alert("errore generale", error);
+      alert("testComment", error);
     }
   };
 }
-/*export const SET_USER = "SET_USER";
-export const SET_TOKEN = "SET_TOKEN";
-export const SET_TOKEN_TYPE = "SET_TOKEN_TYPE";
-
-export const setUser = (user) => {
-  return {
-    type: SET_USER,
-    payload: user,
-  };
-};
-
-export const setToken = (token) => {
-  return {
-    type: SET_TOKEN,
-    payload: token,
-  };
-};
-
-export const SetTokenType = (type) => {
-  return {
-    type: SET_TOKEN_TYPE,
-    paylod: type,
-  };
-};*/
