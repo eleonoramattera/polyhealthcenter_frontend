@@ -33,8 +33,7 @@ function DoveSiamo() {
           <Offcanvas.Body>
             {countries.map((marker) => (
               <p key={marker.id}>
-                {" "}
-                <b>{marker.comune}</b> - {marker.regione}
+                {marker.regione} - <b>{marker.comune}</b>
               </p>
             ))}
           </Offcanvas.Body>
