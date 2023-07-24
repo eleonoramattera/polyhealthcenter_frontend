@@ -54,11 +54,12 @@
   --bs-dropdown-border-width: 0px;
   position: absolute;
 }
+
 .dropdown-menu.show {
   display: block;
   position: relative;
   top: 45px;
-  left: -23px;
+  left: -143px;
   margin-top: 0px;
 }
 
@@ -92,4 +93,8 @@
   border-radius: 50%;
   font-size: 1.2rem;
   box-shadow: 0 0 0px 5px #fff;
+}
+
+.custom-border {
+  box-shadow: inset 0px 0px 0px 2px #8effa9;
 }
