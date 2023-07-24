@@ -1,7 +1,6 @@
 import Banner from "./Banner.jsx";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import Accordion from "react-bootstrap/Accordion";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Alert from "react-bootstrap/Alert";
@@ -100,7 +99,7 @@ function Home() {
                 </div>
               ))}
             </div>
-            <Link to="/terapie" className="text-dark" style={{ fontWeight: "bold" }}>
+            <Link to="/terapiastore" className="text-dark" style={{ fontWeight: "bold" }}>
               Scopri tutte le terapie
             </Link>
           </p>
