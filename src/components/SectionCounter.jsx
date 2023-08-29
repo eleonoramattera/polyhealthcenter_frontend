@@ -15,9 +15,9 @@ function SectionCounter() {
       if (visite >= 2000) {
         clearInterval(interval);
       } else {
-        setVisite((prevCount) => prevCount + 5);
+        setVisite((prevCount) => prevCount + 6);
       }
-    }, 3); // Aggiorna il contatore
+    }, 1); // Aggiorna il contatore
 
     return () => {
       clearInterval(interval); // Pulisce l'intervallo quando il componente viene smontato
@@ -29,9 +29,9 @@ function SectionCounter() {
       if (pazienti >= 50000) {
         clearInterval(interval);
       } else {
-        setPazienti((prevCount) => prevCount + 90);
+        setPazienti((prevCount) => prevCount + 140);
       }
-    }, 3); // Aggiorna il contatore
+    }, 1.5); // Aggiorna il contatore
 
     return () => {
       clearInterval(interval); // Pulisce l'intervallo quando il componente viene smontato

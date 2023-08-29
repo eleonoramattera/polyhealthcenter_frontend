@@ -16,15 +16,23 @@ function DoveSiamo() {
     <Row className="justify-content-center mt-5 ">
       <Col xs={12} md={8} lg={6}>
         <h3>DOVE SIAMO</h3>
-        <p className="mt-5">
+        <p className="my-5">
           PolyHealth è una realtà nazionale sempre più diffusa ed in forte crescita, con diverse sedi in tutta Italia
           per essere vicini ai nostri pazienti.
         </p>
 
-        <Button onClick={handleShow} style={{ backgroundColor: "#8effa9" }}>
+        <Button
+          onClick={handleShow}
+          style={{
+            backgroundColor: "#2b5453",
+            border: "none",
+            position: "absolute",
+            top: "304px",
+            right: "508px",
+            zIndex: "1",
+          }}>
           Elenco Sedi
         </Button>
-        <Mappa />
 
         <Offcanvas show={show} onHide={handleClose}>
           <Offcanvas.Header closeButton>
@@ -38,6 +46,8 @@ function DoveSiamo() {
             ))}
           </Offcanvas.Body>
         </Offcanvas>
+
+        <Mappa />
       </Col>
     </Row>
   );

@@ -1,0 +1,107 @@
+#firstCOL {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  position: relative;
+}
+
+#firstCOL div:first-child {
+  width: 400px;
+  height: 400px;
+  box-sizing: border-box;
+  background-color: #8dffa8;
+  border-radius: 50%;
+  margin-left: 2em;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+}
+
+#firstCOL div:first-child p {
+  vertical-align: middle;
+  font-size: 1.5em;
+  line-height: 1.7em;
+}
+
+#firstCOL div:nth-child(2) {
+  width: 600px;
+  text-align: justify;
+  margin: 5em 0 0 2em;
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+
+#firstCOL div:nth-child(3) {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #8dffa8;
+  position: absolute;
+  top: 23em;
+  left: 30em;
+}
+#firstCOL div:nth-child(4) {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #1dc48c;
+  position: absolute;
+  top: 9em;
+  left: 40em;
+}
+
+#secondCOL {
+  width: 38%;
+}
+
+#secondCOL img {
+  border-radius: 50%;
+  width: 100%;
+  border: 30px solid #295651;
+  margin-top: 4em;
+}
+
+#secondCOL div {
+  width: 100px;
+  height: 100px;
+  border: 10px solid #295651;
+  border-radius: 50%;
+  position: absolute;
+  top: 5em;
+  right: 5em;
+}
+
+h3 {
+  text-align: center;
+}
+
+.row:nth-child(2) .col:first-child {
+  text-align: justify;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background-color: #295651;
+  margin: 0 1.2em;
+  color: white;
+  padding: 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-icon {
+  font-size: 2em;
+}
+
+.btn_Home {
+  background-color: #8dffa8;
+  border: none;
+  color: black;
+}
+
+.btn_Home:hover {
+  background-color: #5ffc84;
+}

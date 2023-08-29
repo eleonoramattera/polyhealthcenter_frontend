@@ -7,7 +7,7 @@ import { Form } from "react-bootstrap";
 const URL = "http://localhost:8080/api/auth/register";
 
 const Registrazione = () => {
-  const [name, setName] = useState("");
+  const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -20,7 +20,7 @@ const Registrazione = () => {
     event.preventDefault();
     // loading body for sign in
     const bodyRegistration = {
-      firstname: name,
+      firstname: firstname,
       lastname: lastname,
       username: username,
       email: email,
@@ -40,7 +40,7 @@ const Registrazione = () => {
 
       if (response.ok) {
         setRegistered(true);
-        alert(`Registrazione avvenuta corretamente, accedi subito all'area utenti ${name} ${lastname}!`);
+        alert(`Registrazione avvenuta corretamente, accedi subito all'area utenti ${firstname} ${lastname}!`);
       } else {
         alert(`errore durante il la registrazione, response status: ${response.status}`);
       }
@@ -54,8 +54,8 @@ const Registrazione = () => {
   }
 
   return (
-    <Row className="signInBg">
-      <Col className="d-flex flex-column flex-lg-row align-items-center">
+    <Row className="justify-content-center mt-5">
+      <Col xs={12} md={8} lg={6}>
         <div className="loginImgComponent d-flex align-items-center justify-content-center"></div>
         <form
           className="formComponent formComponentSignIn d-flex flex-column align-items-center align-content-center justify-content-center "
@@ -69,8 +69,8 @@ const Registrazione = () => {
               type="firstname"
               placeholder="inserisci nome"
               id="firstname"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={firstname}
+              onChange={(e) => setFirstname(e.target.value)}
             />
           </div>
           <div>

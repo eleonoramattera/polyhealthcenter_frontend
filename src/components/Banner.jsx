@@ -3,18 +3,18 @@ import banner from "../assets/img/banner.jpg";
 function Banner() {
   return (
     <div style={{ position: "relative", width: "100%" }}>
-      {/* <video
+      <video
         className="autoplay-video"
-        autoPlay={true}
-        loop={true}
+        autoPlay
+        loop
         controls={false}
         width="100%"
-        height="600px"
-        backgroundSize="cover">
-        <video autoPlay loop controls width="500px">
-        <source src={require("../assets/video/videohome.mp4")} type="video/mp4"></source>
-  </video> */}
-      <img src={banner} alt="banner" style={{ width: "100%" }} />
+        height="800px"
+        backgroundSize="cover"
+        style={{ objectFit: "cover" }}>
+        <source src={require("../assets/video/banner.mp4")} type="video/mp4"></source>
+      </video>
+      {/* <img src={banner} alt="banner" style={{ width: "100%" }} /> */}
 
       <div style={{ position: "absolute", top: "25px", left: "70px", fontSize: "40px", color: "white" }}>
         <p>

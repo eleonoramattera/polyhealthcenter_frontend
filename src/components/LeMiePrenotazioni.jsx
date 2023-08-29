@@ -69,6 +69,12 @@ const LeMiePrenotazioni = () => {
     // Filtra le prenotazioni e rimuovi quella con l'id corrispondente
     const updatedPrenotazioni = prenotazioniFiltrate.filter((prenotazione) => prenotazione.id !== id);
     setPrenotazioniFiltrate(updatedPrenotazioni);
+    setIsPrenotazioneEliminata(true);
+
+    // Nascondi il messaggio dopo 3 secondi
+    setTimeout(() => {
+      setIsPrenotazioneEliminata(false);
+    }, 3000);
   };
 
   const [emailFiltrata, setEmailFiltrata] = useState("");
@@ -91,6 +97,8 @@ const LeMiePrenotazioni = () => {
   };
   //////////////////////////////////////////////////////////
   const [editingIndex, setEditingIndex] = useState(null);
+  const [isPrenotazioneModificata, setIsPrenotazioneModificata] = useState(false);
+  const [isPrenotazioneEliminata, setIsPrenotazioneEliminata] = useState(false);
 
   const startEditing = (index) => {
     setEditingIndex(index);
@@ -113,6 +121,11 @@ const LeMiePrenotazioni = () => {
     setPrenotazioniFiltrate(updatedPrenotazioni);
 
     setEditingIndex(null);
+
+    setIsPrenotazioneModificata(true);
+    setTimeout(() => {
+      setIsPrenotazioneModificata(false);
+    }, 3000);
   };
 
   return (
@@ -120,11 +133,13 @@ const LeMiePrenotazioni = () => {
       <Row className="justify-content-center mt-5">
         <Col xs={12} md={8} lg={6}>
           <div>
-            <h2>Inserisci la tua email per vedere le tue prenotazioni:</h2>
-            <form onSubmit={handleSubmit}>
-              <input type="email" value={emailFiltrata} onChange={handleEmailChange} />
-              <button type="submit">Visualizza Prenotazioni</button>
-            </form>
+            <h4>Inserisci la tua email per vedere le prenotazioni effettuate:</h4>
+            <Form onSubmit={handleSubmit}>
+              <Form.Control type="email" value={emailFiltrata} onChange={handleEmailChange} />
+              <Button className="btn mt-2 me-2" style={{ backgroundColor: "#2b5453", border: "none" }} type="submit">
+                Visualizza Prenotazioni
+              </Button>
+            </Form>
             {prenotazioniFiltrate.length > 0 ? (
               <div>
                 <p>
@@ -279,11 +294,13 @@ const LeMiePrenotazioni = () => {
                 </ul>
               </div>
             ) : (
-              <p>Nessuna prenotazione trovata per l'email specificata</p>
+              <p className="mt-4">Nessuna prenotazione trovata per l'email specificata</p>
             )}
           </div>
         </Col>
       </Row>
+      {isPrenotazioneModificata && <div className="sfocato">Prenotazione modificata con successo</div>}
+      {isPrenotazioneEliminata && <div className="sfocato">Prenotazione eliminata correttamente</div>}
     </Container>
   );
 };

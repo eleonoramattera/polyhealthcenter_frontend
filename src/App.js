@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Registrazione from "./components/Registrazione.jsx";
 import Login from "./components/Login.jsx";
-import Home from "./components/Home.jsx";
+import Home from "./components/Home/Home.jsx";
 import ChiSiamo from "./components/ChiSiamo";
 
 import Prenotazioni from "./components/Prenotazioni";

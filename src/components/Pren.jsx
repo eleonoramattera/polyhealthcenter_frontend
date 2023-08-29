@@ -1,8 +1,27 @@
 import { useState, useEffect } from "react";
 import { Col, Container, Row, Form, Button } from "react-bootstrap";
 import { Link, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 function Pren() {
+  const [showLoginMessage, setShowLoginMessage] = useState(false);
+  const isLogged = useSelector((state) => state.auth.isLogged);
+  // Funzione per gestire la visualizzazione del messaggio di login
+  const handleLoginMessage = () => {
+    setShowLoginMessage(true);
+  };
+
+  const handlePrenotazione = () => {
+    // Effettua qui la logica per la prenotazione solo se l'utente è loggato
+    if (isLogged) {
+      // Effettua la prenotazione
+      console.log("Prenotazione effettuata con successo!");
+    } else {
+      // Se l'utente non è loggato, mostra il messaggio di login
+      handleLoginMessage();
+    }
+  };
+  ///////////////////////////
   const location = useLocation();
   console.log("LOCATION", location);
 
@@ -157,6 +176,37 @@ function Pren() {
               <Form.Control type="number" placeholder="Cognome" required value={id} readOnly disabled />
             </Form.Group>
 
+            <Form.Group className="mb-3">
+              <Form.Label>Inserisci il tuo nome</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Nome"
+                required
+                value={nomeUtente}
+                onChange={(e) => setNomeUtente(e.target.value)}
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+              <Form.Label>Inserisci il tuo cognome</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Cognome"
+                required
+                value={cognomeUtente}
+                onChange={(e) => setCognomeUtente(e.target.value)}
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Inserisci la tue Email</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="email"
+                required
+                value={emailUtente}
+                onChange={(e) => setEmailUtente(e.target.value)}
+              />
+            </Form.Group>
             {/*  <div>
               <label>
                 Numero Prenotazione
@@ -298,88 +348,7 @@ function Pren() {
                 <option>Udine</option>
               </Form.Select>
             </Form.Group>
-            {/* 
-            <div>
-              <label>
-                Sede:
-                <select value={sede} onChange={(e) => setSede(e.target.value)}>
-                  <option value="">Seleziona una sede</option>
-                  <option value="alghero">Alghero</option>
-                  <option value="ancona">Ancona</option>
-                  <option value="aosta">Aosta</option>
-                  <option value="arezzo">Arezzo</option>
-                  <option value="avellino">Avellino</option>
-                  <option value="bologna">Bologna</option>
-                  <option value="brescia">Brescia</option>
-                  <option value="catania">Catania</option>
-                  <option value="cosenza">Cosanza</option>
-                  <option value="forli">Forlì</option>
-                  <option value="frosinone">Frosinone</option>
-                  <option value="genova">Genova</option>
-                  <option value="laquila">L'Aquila</option>
-                  <option value="lecce">Lecce</option>
-                  <option value="mantova">Mantova</option>
-                  <option value="milano">Milano</option>
-                  <option value="napoli">Napoli</option>
-                  <option value="padova">Padova</option>
-                  <option value="palermo">Palermo</option>
-                  <option value="perugia">Perugia</option>
-                  <option value="potenza">Potenza</option>
-                  <option value="reggiocalabria">Reggio Calabria</option>
-                  <option value="roma">Roma</option>
-                  <option value="salerno">Salerno</option>
-                  <option value="termoli">Termoli</option>
-                  <option value="torino">Torino</option>
-                  <option value="trento">Trento</option>
-                  <option value="udine">Udine</option>
-                </select>
-              </label>
-            </div>
-*/}
-            <Form.Group className="mb-3">
-              <Form.Label>Inserisci il tuo nome</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Nome"
-                required
-                value={nomeUtente}
-                onChange={(e) => setNomeUtente(e.target.value)}
-              />
-            </Form.Group>
-            {/*  <div>
-              <label>
-                Nome Utente:
-                <input type="text" value={nomeUtente} onChange={(e) => setNomeUtente(e.target.value)} />
-              </label>
-            </div>
-          
-            <div>
-              <label>
-                Cognome Utente:
-                <input type="text" value={cognomeUtente} onChange={(e) => setCognomeUtente(e.target.value)} />
-              </label>
-            </div>
-          */}
-            <Form.Group className="mb-3">
-              <Form.Label>Inserisci il tuo cognome</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Cognome"
-                required
-                value={cognomeUtente}
-                onChange={(e) => setCognomeUtente(e.target.value)}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3">
-              <Form.Label>Inserisci la tue Email</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="email"
-                required
-                value={emailUtente}
-                onChange={(e) => setEmailUtente(e.target.value)}
-              />
-            </Form.Group>
+
             {/* <div>
               <label>
                 Email:
