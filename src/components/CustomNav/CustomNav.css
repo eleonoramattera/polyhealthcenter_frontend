@@ -1,0 +1,5 @@
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show,
+.nav-link {
+  color: #295651;
+}
