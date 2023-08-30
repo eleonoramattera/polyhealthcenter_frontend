@@ -185,7 +185,7 @@ function Home() {
         </Col>
       </Row>
 
-      <Row className="d-flex justify-content-center flex-wrap mt-5 ">
+      <Row className=" justify-content-center mt-5 ">
         <Col xs={12} className="px-5">
           <h3>PRENOTA ORA!</h3>
           <p>
@@ -201,6 +201,38 @@ function Home() {
             style={{ backgroundColor: "#8dffa8", color: "black" }}>
             Prenota ora
           </Link>
+        </Col>
+      </Row>
+
+      <Row className=" justify-content-center mt-5 ">
+        <Col xs={12}>
+          <h3>CONTATTACI</h3>
+          <p>
+            Qualsiasi incertezza, domanda o curiosità hai, condividila attraverso il nostro modulo. Siamo qui per te e
+            risponderemo con prontezza.
+          </p>
+          <Form>
+            <Form.Group className="mb-5 text-center">
+              <Form.Label> Nome </Form.Label>
+              <Form.Control type="text" placeholder="Nome" required />
+            </Form.Group>
+            <Form.Group className="mb-5 text-center">
+              <Form.Label> Cognome </Form.Label>
+              <Form.Control type="text" placeholder="Cognome" required />
+            </Form.Group>
+            <Form.Group className="mb-5 text-center">
+              <Form.Label> Email </Form.Label>
+              <Form.Control type="email" placeholder="Email" required />
+            </Form.Group>
+            <Form.Group className="mb-5 text-center">
+              <Form.Label> Numero di Telefono </Form.Label>
+              <Form.Control type="number" placeholder="Numero di telefono" required />
+            </Form.Group>
+            <Form.Group controlId="formTextArea" className=" text-center">
+              <Form.Label>Scrivi il tuo messaggio:</Form.Label>
+              <Form.Control as="textarea" rows={5} placeholder="Inserisci qui il tuo messaggio" />
+            </Form.Group>
+          </Form>
         </Col>
       </Row>
     </Container>

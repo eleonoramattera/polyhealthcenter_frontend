@@ -111,3 +111,48 @@ h3 {
 .row:nth-child(3) .col:first-child img {
   width: 100%;
 }
+
+form {
+  width: 50%;
+  background-color: #295651;
+  margin: auto;
+  color: white;
+  padding: 1.2em;
+}
+
+.form-control {
+  width: 50%;
+  margin: auto;
+  background-color: #295651;
+  border: none;
+  border-bottom: 2px solid white;
+  color: white;
+}
+.form-control:focus {
+  background-color: #295651;
+  border: none;
+  border-bottom: 2px solid white;
+  box-shadow: none;
+}
+
+.form-control:focus-visible {
+  outline: none;
+  color: white;
+}
+
+.form-label {
+  color: white;
+}
+
+.form-label:focus-visible {
+  outline: none;
+}
+
+.form-control::placeholder {
+  color: white;
+  font-size: small;
+}
+
+textarea {
+  color: white;
+}
