@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import CustomNav from "./components/CustomNav";
+import CustomNav from "./components/CustomNav/CustomNav";
 import Footer from "./components/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Registrazione from "./components/Registrazione.jsx";
