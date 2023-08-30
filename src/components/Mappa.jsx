@@ -46,7 +46,8 @@ const Mappa = () => {
 
   return (
     <>
-      <MapContainer center={[41.8719, 12.5674]} zoom={6} style={{ height: "500px", width: "700px" }}>
+      <MapContainer center={[41.8719, 12.5674]} zoom={6} style={{ height: "500px" }}>
+        {/* width:700px */}
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution="© OpenStreetMap contributors"
