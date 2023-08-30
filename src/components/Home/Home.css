@@ -10,7 +10,6 @@
   height: 400px;
   box-sizing: border-box;
   background-color: #8dffa8;
-  border-radius: 50%;
   margin-left: 2em;
   text-align: center;
   display: flex;
@@ -36,20 +35,19 @@
 #firstCOL div:nth-child(3) {
   width: 100px;
   height: 100px;
-  border-radius: 50%;
   background-color: #8dffa8;
   position: absolute;
   top: 23em;
   left: 30em;
 }
+
 #firstCOL div:nth-child(4) {
   width: 120px;
   height: 120px;
-  border-radius: 50%;
-  background-color: #1dc48c;
+  background-color: #295651;
   position: absolute;
-  top: 9em;
-  left: 40em;
+  top: 25em;
+  left: 34em;
 }
 
 #secondCOL {
@@ -57,41 +55,45 @@
 }
 
 #secondCOL img {
-  border-radius: 50%;
   width: 100%;
   border: 30px solid #295651;
   margin-top: 4em;
 }
 
 #secondCOL div {
-  width: 100px;
-  height: 100px;
-  border: 10px solid #295651;
-  border-radius: 50%;
+  width: 40em;
+  height: 30em;
+  border: 10px solid #8dffa8;
   position: absolute;
-  top: 5em;
+  top: 9em;
   right: 5em;
 }
 
 h3 {
   text-align: center;
+  color: #295651;
+  margin-bottom: 1.2em;
 }
 
 .row:nth-child(2) .col:first-child {
   text-align: justify;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  background-color: #295651;
+  width: 100%;
   margin: 0 1.2em;
-  color: white;
   padding: 1.5em;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  position: relative;
 }
 
+.row:nth-child(2) .col:nth-child(2) {
+  width: 30%;
+}
+.row:nth-child(2) .col:nth-child(2) img {
+  width: 100%;
+  object-fit: cover;
+}
 .custom-icon {
   font-size: 2em;
 }
@@ -104,4 +106,8 @@ h3 {
 
 .btn_Home:hover {
   background-color: #5ffc84;
+}
+
+.row:nth-child(3) .col:first-child img {
+  width: 100%;
 }
