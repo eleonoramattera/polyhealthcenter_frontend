@@ -112,7 +112,7 @@ h3 {
   width: 100%;
 }
 
-form {
+form[data-form-type="type1"] {
   width: 50%;
   background-color: #295651;
   margin: auto;
@@ -120,7 +120,7 @@ form {
   padding: 1.2em;
 }
 
-.form-control {
+form[data-form-type="type1"] .form-control {
   width: 50%;
   margin: auto;
   background-color: #295651;
@@ -128,31 +128,42 @@ form {
   border-bottom: 2px solid white;
   color: white;
 }
-.form-control:focus {
+
+form[data-form-type="type1"] .form-control:focus {
   background-color: #295651;
   border: none;
   border-bottom: 2px solid white;
   box-shadow: none;
 }
 
-.form-control:focus-visible {
+form[data-form-type="type1"] .form-control:focus-visible {
   outline: none;
   color: white;
 }
 
-.form-label {
+form[data-form-type="type1"] .form-label {
   color: white;
 }
 
-.form-label:focus-visible {
+form[data-form-type="type1"] .form-label:focus-visible {
   outline: none;
 }
 
-.form-control::placeholder {
+form[data-form-type="type1"] .form-control::placeholder {
   color: white;
   font-size: small;
 }
 
-textarea {
+form[data-form-type="type1"] textarea {
   color: white;
+}
+
+form[data-form-type="type1"] .btn {
+  background-color: #8dffa8;
+  width: 7em;
+  border: none;
+}
+
+form[data-form-type="type1"] .btn:hover {
+  background-color: #5af57e;
 }

@@ -11,11 +11,12 @@ import medici from "../../assets/img/medici.jpg";
 import ospedale from "../../assets/img/hospital.jpg";
 
 import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 import { useState, useEffect } from "react";
 import "./Home.css";
 
-function Home() {
+function Home({ formType }) {
   const [terapie, setTerapie] = useState([]); // 1
   const [isLoading, setIsLoading] = useState(true); // 2
   const [isError, setIsError] = useState(false); // 3
@@ -211,7 +212,7 @@ function Home() {
             Qualsiasi incertezza, domanda o curiosità hai, condividila attraverso il nostro modulo. Siamo qui per te e
             risponderemo con prontezza.
           </p>
-          <Form>
+          <Form data-form-type={formType}>
             <Form.Group className="mb-5 text-center">
               <Form.Label> Nome </Form.Label>
               <Form.Control type="text" placeholder="Nome" required />
@@ -231,6 +232,11 @@ function Home() {
             <Form.Group controlId="formTextArea" className=" text-center">
               <Form.Label>Scrivi il tuo messaggio:</Form.Label>
               <Form.Control as="textarea" rows={5} placeholder="Inserisci qui il tuo messaggio" />
+            </Form.Group>
+            <Form.Group className="my-5 text-center">
+              <Button variant="success" type="button">
+                INVIA
+              </Button>
             </Form.Group>
           </Form>
         </Col>
