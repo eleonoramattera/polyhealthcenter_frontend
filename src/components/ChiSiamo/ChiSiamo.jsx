@@ -5,15 +5,17 @@ import salaoperatoria from "../../assets/img/salaoperatoria.jpg";
 import mission from "../../assets/img/mission.jpg";
 import ecografia from "../../assets/img/ecografia.jpg";
 import "./ChiSiamo.css";
+import SectionCounter from "../SectionCounter";
 
 function ChiSiamo() {
   return (
     <>
+      <Row>
+        <Col>
+          <SectionCounter />
+        </Col>
+      </Row>
       <Row className="justify-content-center mt-5 flex-wrap">
-        {/* <Col xs={12} style={{ height: "90em" }}>
-          <img src={salaoperatoria} alt="sala operatoria" style={{ width: "100%", objectFit: "cover" }} />
-        </Col> */}
-
         <Col xs={6} className="pt-4" style={{ textAlign: "justify" }}>
           <p>
             PolyHealth è un'eccellenza nel panorama ospedaliero italiano e internazionale, grazie alla sua costante
