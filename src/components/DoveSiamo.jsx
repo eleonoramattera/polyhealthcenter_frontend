@@ -26,9 +26,6 @@ function DoveSiamo() {
           style={{
             backgroundColor: "#2b5453",
             border: "none",
-            position: "absolute",
-            top: "304px",
-            right: "508px",
             zIndex: "1",
           }}>
           Elenco Sedi
