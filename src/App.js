@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Registrazione from "./components/Registrazione.jsx";
 import Login from "./components/Login.jsx";
 import Home from "./components/Home/Home.jsx";
-import ChiSiamo from "./components/ChiSiamo";
+import ChiSiamo from "./components/ChiSiamo/ChiSiamo";
 
 import Prenotazioni from "./components/Prenotazioni";
 import TerapiaStore from "./components/TerapiaStore";
@@ -22,7 +22,7 @@ function App() {
       <BrowserRouter>
         <CustomNav />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home formType="type1" />} />
           <Route path="prenotazioni" element={<Pren />} />
           <Route path="/registerpage" element={<RegisterPage />} />
           <Route path="/login" element={<Login />} />
@@ -31,7 +31,7 @@ function App() {
           <Route path="/dovesiamo" element={<DoveSiamo />} />
           <Route path="/lemieprenotazioni" element={<LeMiePrenotazioni />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </div>
   );
