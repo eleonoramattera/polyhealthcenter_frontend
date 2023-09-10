@@ -1,15 +1,10 @@
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import polyhealthlogo from "../../assets/img/polyhealthlogo.jpg";
-import { BiSolidUser } from "react-icons/bi";
-import { FaSearch } from "react-icons/fa";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+
+import polyhealthlogo from "../../assets/img/polyhealthlogo.png";
+
+import { Link, useLocation } from "react-router-dom";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./CustomNav.css";
 
 function CustomNav() {
@@ -23,15 +18,15 @@ function CustomNav() {
   return (
     <>
       <Navbar.Brand>
-        <img src={polyhealthlogo} alt="logo" style={{ width: "200px" }} onClick={handleShow} />
+        <img src={polyhealthlogo} alt="logo" onClick={handleShow} />
       </Navbar.Brand>
-      <Offcanvas show={show} onHide={handleClose} style={{ backgroundColor: "#8dffa8" }}>
+      <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>
-            <img src={polyhealthlogo} alt="logo" style={{ width: "200px" }} />
+            <img src={polyhealthlogo} alt="logo" />
           </Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body style={{ color: "#1dc48c" }}>
+        <Offcanvas.Body>
           <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} to="/">
             Home
           </Link>

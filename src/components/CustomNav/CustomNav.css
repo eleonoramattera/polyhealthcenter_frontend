@@ -1,5 +1,22 @@
 .navbar-nav .nav-link.active,
 .navbar-nav .nav-link.show,
 .nav-link {
-  color: #295651;
+  color: #8dffa8;
+}
+
+.navbar-brand > img {
+  width: 200px;
+}
+
+.offcanvas,
+.offcanvas-start {
+  background-color: #295651;
+}
+
+.offcanvas img {
+  width: 200px;
+}
+
+.offcanvas-body {
+  color: #1dc48c;
 }
