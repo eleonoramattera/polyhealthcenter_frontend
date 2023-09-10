@@ -4,11 +4,12 @@ import Row from "react-bootstrap/Row";
 import Alert from "react-bootstrap/Alert";
 import Spinner from "react-bootstrap/Spinner";
 import Container from "react-bootstrap/Container";
-import SectionCounter from "../SectionCounter.jsx";
+
 import Mappa from "../Mappa.jsx";
-import medico from "../../assets/img/medicoHomePage.png";
+import medico from "../../assets/img/medicoHomePage copia.png";
 import medici from "../../assets/img/medici.jpg";
 import ospedale from "../../assets/img/hospital.jpg";
+import bg from "../../assets/img/B.png";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -47,32 +48,29 @@ function Home({ formType }) {
     console.log("SONO COMPONENTDIDMOUNT()!");
     getAllTerapie();
   }, []);
-  // === componentDidMount
 
   return (
     <Container fluid className="p-0 m-0">
       <Row className="d-flex justify-content-evenly flex-wrap" style={{ width: "100vw" }}>
-        <Col xs={12} id="firstCOL">
-          <div>
-            <p>
-              Medicina all'avanguardia <br />
-              con oltre 50 specialità cliniche <br />e più di 700 medici
-            </p>
-          </div>
-          <div>
-            <p className="mt-5">
-              PolyHealth promuove la salute, la prevenzione e la diagnosi precoce attraverso attività ambulatoriali e
-              servizi avanzati e innovativi. PolyHealth è da sempre parte attiva in campagne sull’importanza degli stili
-              di vita.
-            </p>
-          </div>
-          <div></div>
-          <div></div>
-        </Col>
-        <Col xs={6} id="secondCOL">
+        <Col xs={12} className="d-flex flex-column firstColHome">
           <img src={medico} alt="medico" />
-          <div></div>
+          {/*
+          <p>
+            Medicina all'avanguardia <br />
+            con oltre 50 specialità cliniche <br />e più di 700 medici
+          </p>
+          <p className="mt-5">
+            PolyHealth promuove la salute, la prevenzione e la diagnosi precoce attraverso attività ambulatoriali e
+            servizi avanzati e innovativi. PolyHealth è da sempre parte attiva in campagne sull’importanza degli stili
+            di vita.
+          </p>
+          <img src={bg}/> {/* <div>
+          </div>
+          <div>
+          </div> */}
         </Col>
+        {/* <Col xs={6} className="secondColHome">
+        </Col> */}
       </Row>
       <Row className="my-5 " style={{ margin: "auto", width: "100%" }}>
         <Col xs={6} className="ms-2" style={{ textAlign: "justify" }}>
@@ -129,9 +127,9 @@ function Home({ formType }) {
       </Row>
 
       <Row className="my-5  justify-content-center">
-        <Col xs={12}>
+        <Col xs={12} className="pb-5 text-center">
           <h3>LE NOSTRE TERAPIE</h3>
-          <p style={{ textAlign: "justify" }}>
+          <p className="px-3" style={{ textAlign: "justify" }}>
             PolyHealth si dedica a fornire ai nostri pazienti trattamenti di alta qualità, eseguiti con l'utilizzo di
             tecnologie all'avanguardia. La qualità della cura e dell'assistenza rappresenta il nostro primario
             obiettivo, in quanto miriamo costantemente a migliorarci per il beneficio dei pazienti che affidano la loro
@@ -143,34 +141,24 @@ function Home({ formType }) {
             modo aperto e ambizioso. Ogni giorno ci sforziamo di definire nuovi standard, per te, per la tua salute e
             per il tuo benessere.
           </p>
-          {/* LOGICA DI ERRORE */}
           {isError && <Alert variant="danger">Qualcosa è andato storto :(</Alert>}
-          {/* LOGICA DI CARICAMENTO */}
-          {/* RENDERING CONDIZIONALE 1: ternary operator */}
-          {/* {this.state.isLoading ? <div>ok</div> : <div>non ok</div>} */}
-          {/* RENDERING CONDIZIONALE 2: SHORT CIRCUIT*/}
-          {/* && --> SHORT CIRCUIT OPERATOR */}
           {isLoading && (
-            <div className="text-center">
+            <div className="text-center px-5">
               <Spinner animation="border" role="status" variant="success">
                 <span className="visually-hidden">Loading...</span>
               </Spinner>
             </div>
           )}
-          {/* predisponiamo questa lista per leggere costantemente
-                  il valore di this.state.reservations e generare dinamicamente
-                  i list item per ogni prenotazione */}
-          <div style={{ display: "flex", flexWrap: "wrap", width: "100%", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", width: "70%", justifyContent: "center", margin: "auto" }}>
             {terapie.map((ter) => (
               <div
                 key={ter._id}
-                className="my-4"
+                className="my-4 text-center"
                 style={{
                   width: "40%",
                   margin: "10px",
                   padding: "10px",
-                  borderRadius: "20px",
-                  backgroundColor: "#8dffa8",
+                  border: "6px solid #8dffa8",
                 }}>
                 {ter.nome}
               </div>
@@ -187,9 +175,9 @@ function Home({ formType }) {
       </Row>
 
       <Row className=" justify-content-center mt-5 ">
-        <Col xs={12} className="px-5">
+        <Col xs={12} className="px-5 text-center">
           <h3>PRENOTA ORA!</h3>
-          <p>
+          <p className="px-3" style={{ textAlign: "justify" }}>
             Con noi hai la comodità di prenotare una terapia presso la sede più prossima in modo rapido e senza sforzi.
             Mettiamo il controllo nelle tue mani, consentendoti di pianificare la tua terapia quando ti è più comodo.
             Abbiamo reso il processo di prenotazione semplice e immediato, mettendo a tua disposizione uno strumento
@@ -206,32 +194,33 @@ function Home({ formType }) {
       </Row>
 
       <Row className=" justify-content-center mt-5 ">
-        <Col xs={12}>
+        <Col xs={12} className="px-5 text-center">
           <h3>CONTATTACI</h3>
-          <p>
-            Qualsiasi incertezza, domanda o curiosità hai, condividila attraverso il nostro modulo. Siamo qui per te e
-            risponderemo con prontezza.
+          <p className="px-3" style={{ textAlign: "justify" }}>
+            Se hai bisogno di ulteriori informazioni o per qualsiasi incertezza, domanda o curiosità, condividila
+            attraverso il nostro modulo. Siamo qui per te e risponderemo con prontezza. Sarà un piacere rispondere alle
+            tue domande e fornirti ulteriori dettagli se necessario.
           </p>
           <Form data-form-type={formType}>
             <Form.Group className="mb-5 text-center">
               <Form.Label> Nome </Form.Label>
-              <Form.Control type="text" placeholder="Nome" required />
+              <Form.Control type="text" required />
             </Form.Group>
             <Form.Group className="mb-5 text-center">
               <Form.Label> Cognome </Form.Label>
-              <Form.Control type="text" placeholder="Cognome" required />
+              <Form.Control type="text" required />
             </Form.Group>
             <Form.Group className="mb-5 text-center">
               <Form.Label> Email </Form.Label>
-              <Form.Control type="email" placeholder="Email" required />
+              <Form.Control type="email" required />
             </Form.Group>
             <Form.Group className="mb-5 text-center">
               <Form.Label> Numero di Telefono </Form.Label>
-              <Form.Control type="number" placeholder="Numero di telefono" required />
+              <Form.Control type="number" required />
             </Form.Group>
             <Form.Group controlId="formTextArea" className=" text-center">
               <Form.Label>Scrivi il tuo messaggio:</Form.Label>
-              <Form.Control as="textarea" rows={5} placeholder="Inserisci qui il tuo messaggio" />
+              <Form.Control as="textarea" rows={5} />
             </Form.Group>
             <Form.Group className="my-5 text-center">
               <Button variant="success" type="button">
