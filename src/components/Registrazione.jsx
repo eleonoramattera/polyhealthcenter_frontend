@@ -1,153 +1,141 @@
 import { useState } from "react";
-import { Button, Col, Row } from "react-bootstrap";
-import { Link, Navigate } from "react-router-dom";
-import { Form } from "react-bootstrap";
+import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
+import { RiLockPasswordFill } from "react-icons/ri";
+import { useDispatch } from "react-redux";
+import { regisrazioneUser } from "../redux/actions";
+import { Link, useLocation } from "react-router-dom";
 
-// const URL = "http://localhost:8080/api/auth/signin"; // <--- TODO: da verificare
-const URL = "http://localhost:8080/api/auth/register";
-
-const Registrazione = () => {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [registered, setRegistered] = useState(false);
-  const [roles, setRoles] = useState([]);
-
-  const handleSubmit = async (event) => {
-    // prevent refresh
-    event.preventDefault();
-    // loading body for sign in
-    const bodyRegistration = {
-      firstname: firstname,
-      lastname: lastname,
-      username: username,
-      email: email,
-      password: password,
-      roles: roles,
-    };
-
-    // sent sign in credential
-    try {
-      const response = await fetch(URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(bodyRegistration),
-      });
-
-      if (response.ok) {
-        setRegistered(true);
-        alert(`Registrazione avvenuta corretamente, accedi subito all'area utenti ${firstname} ${lastname}!`);
-      } else {
-        alert(`errore durante il la registrazione, response status: ${response.status}`);
-      }
-    } catch (error) {
-      alert(`Non sta funzionando la registrazione, chiedere assistenza: ${error}`);
-    }
+function Registrazione({ setIsAuthenticated }) {
+  const location = useLocation();
+  console.log("LOCATION", location);
+  const user = {
+    firstname: "",
+    lastname: "",
+    username: "",
+    email: "",
+    password: "",
+    dataNascita: "",
+    indirizzo: "",
+    numeroTelefono: "",
+    roles: ["ROLE_USER"],
   };
 
-  if (registered) {
-    return <Navigate to="/login" />;
-  }
+  const [input, setInput] = useState(user);
+  const dispatch = useDispatch();
+  const [validated, setValidated] = useState(false);
 
+  const handleSubmit = (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    setValidated(true);
+  };
+
+  const handleChange = (field, value) => {
+    setInput((prev) => ({ ...prev, [field]: value }));
+    setIsAuthenticated(true);
+  };
   return (
-    <Row className="justify-content-center mt-5">
-      <Col xs={12} md={8} lg={6}>
-        <div className="loginImgComponent d-flex align-items-center justify-content-center"></div>
-        <form
-          className="formComponent formComponentSignIn d-flex flex-column align-items-center align-content-center justify-content-center "
-          onSubmit={handleSubmit}>
-          <div>
-            <label className="d-block" htmlFor="firstname">
-              Nome:
-            </label>
-            <input
-              className="my-3 p-2"
-              type="firstname"
-              placeholder="inserisci nome"
-              id="firstname"
-              value={firstname}
-              onChange={(e) => setFirstname(e.target.value)}
-            />
-          </div>
-          <div>
-            <label className="d-block" htmlFor="lastname">
-              Cognome:
-            </label>
-            <input
-              className="my-3 p-2"
-              type="lastname"
-              placeholder="inserisci cognome"
-              id="lastname"
-              value={lastname}
-              onChange={(e) => setLastname(e.target.value)}
-            />
-          </div>
-          <div>
-            <label className="d-block" htmlFor="username">
-              Nome Utente:
-            </label>
-            <input
-              className="my-3 p-2"
-              type="text"
-              placeholder="inserisci username"
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </div>
-          <div>
-            <label className="d-block" htmlFor="email">
-              Email:
-            </label>
-            <input
-              className="my-3 p-2"
-              type="text"
-              placeholder="inserisci email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div>
-            <label className="d-block" htmlFor="password">
-              Password:
-            </label>
-            <input
-              className="my-3 p-2"
-              type="password"
-              placeholder="inserisci password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <Form.Group controlId="formRoles">
-            <Form.Label className="register-label">Roles</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter roles (comma-separated)"
-              value={roles}
-              onChange={(e) => setRoles(e.target.value.split(","))}
-              className="register-input"
-            />
-          </Form.Group>
-          <Button type="submit" className="log_reg_Button">
-            Registrati
-          </Button>
-          <p>
-            Sei già registrato?
-            <Link to={"/"}>
-              <span className="logIn">Clicca qui</span>
+    <>
+      <Row>
+        <Col xs={12}>
+          <Form noValidate validated={validated} onSubmit={handleSubmit}>
+            <Row className="d-flex flex-column align-items-center my-5 text-center">
+              <Form.Group
+                as={Col}
+                md="4"
+                className="d-flex flex-column align-items-center"
+                controlId="validationCustom01">
+                <Form.Label className="label text-white fw-semibold fst-italic">Nome</Form.Label>
+                <Form.Control
+                  required
+                  type="text"
+                  placeholder="Nome e Cognome"
+                  onChange={(e) => handleChange("firstname", e.target.value)}
+                />
+              </Form.Group>
+
+              <Form.Group
+                as={Col}
+                md="4"
+                className="d-flex flex-column align-items-center"
+                controlId="validationCustomUsername">
+                <Form.Label className="label text-white fw-semibold fst-italic">Username</Form.Label>
+                <InputGroup hasValidation>
+                  <Form.Control
+                    type="text"
+                    placeholder="Username"
+                    aria-describedby="inputGroupPrepend"
+                    required
+                    onChange={(e) => handleChange("username", e.target.value)}
+                  />
+                  <Form.Control.Feedback type="invalid">Please choose a username.</Form.Control.Feedback>
+                </InputGroup>
+              </Form.Group>
+
+              <Form.Group
+                as={Col}
+                md="4"
+                className="d-flex flex-column align-items-center"
+                controlId="validationCustomEmail">
+                <Form.Label className="label text-white fw-semibold fst-italic">E-mail</Form.Label>
+                <InputGroup hasValidation>
+                  <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+                  <Form.Control
+                    type="email"
+                    placeholder="email"
+                    aria-describedby="inputGroupPrepend"
+                    required
+                    onChange={(e) => handleChange("email", e.target.value)}
+                  />
+                  <Form.Control.Feedback type="invalid">inserisci la tua email.</Form.Control.Feedback>
+                </InputGroup>
+              </Form.Group>
+              <Form.Group
+                as={Col}
+                md="4"
+                className="d-flex flex-column align-items-center"
+                controlId="validationCustomPassword">
+                <Form.Label className="label text-white fw-semibold fst-italic">Password</Form.Label>
+                <InputGroup hasValidation>
+                  <InputGroup.Text id="inputGroupPrepend3">
+                    <RiLockPasswordFill />
+                  </InputGroup.Text>
+                  <Form.Control
+                    type="password"
+                    placeholder="Password"
+                    aria-describedby="inputGroupPrepend3"
+                    required
+                    onChange={(e) => handleChange("password", e.target.value)}
+                  />
+                  <Form.Control.Feedback type="invalid">inserisci la tua password.</Form.Control.Feedback>
+                </InputGroup>
+              </Form.Group>
+            </Row>
+            <Row className="my-4 d-flex flex-column align-items-center">
+              <Button
+                className=" fw-bolder"
+                variant="outline-light"
+                style={{ width: "auto" }}
+                onClick={() => {
+                  dispatch(regisrazioneUser(input));
+                }}>
+                Completa registrazione
+              </Button>
+            </Row>
+          </Form>
+          <p className="text-white  fw-semibold d-flex flex-column align-items-center mt-3">
+            Hai già un account?
+            <Link className={`nav-link ${location.pathname === "/login" ? "active" : ""}`} to="/login">
+              Premi qui
             </Link>
           </p>
-        </form>
-      </Col>
-    </Row>
+        </Col>
+      </Row>
+    </>
   );
-};
+}
 
 export default Registrazione;
