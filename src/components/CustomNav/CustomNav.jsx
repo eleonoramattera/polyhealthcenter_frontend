@@ -37,7 +37,7 @@ function CustomNav() {
             Registrazione
           </Link>
 
-          <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} to="/login">
+          <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} to="/logout">
             Logout
           </Link>
         </Offcanvas.Body>

@@ -1,6 +1,7 @@
 export const ADD_TOKEN = "ADD_TOKEN";
 export const USERNAME_USER = "USERNAME_USER";
 export const USER = "USER";
+export const SET_AUTHENTICATED = "SET_AUTHENTICATED";
 
 export function regisrazioneUser(input) {
   return async () => {
@@ -62,11 +63,15 @@ export function loginUser(input) {
         dispatch({
           type: ADD_TOKEN,
           payload: data.accessToken,
-        }) &&
-          dispatch({
-            type: USERNAME_USER,
-            payload: data.username,
-          });
+        });
+        dispatch({
+          type: USERNAME_USER,
+          payload: data.username,
+        });
+        dispatch({
+          type: SET_AUTHENTICATED,
+          payload: true,
+        });
         window.location.href = "http://localhost:3000";
       } else if (response.status === 500) {
         alert("Email o Password errati");
@@ -82,8 +87,17 @@ export function logoutUser() {
     dispatch({
       type: ADD_TOKEN,
       payload: "",
-    });
+    }) &&
+      dispatch({
+        type: SET_AUTHENTICATED,
+        payload: false,
+      });
     alert("non sei più loggato");
     window.location.href = "http://localhost:3000/";
   };
 }
+
+export const setAuthenticated = (isAuthenticated) => ({
+  type: SET_AUTHENTICATED,
+  payload: isAuthenticated,
+});

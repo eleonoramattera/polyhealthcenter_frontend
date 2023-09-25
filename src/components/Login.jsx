@@ -5,10 +5,12 @@ import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../redux/actions";
 import { Link, useLocation } from "react-router-dom";
+import { setAuthenticated } from "../redux/actions/index";
 
 function Login() {
   const location = useLocation();
   console.log("LOCATION", location);
+
   const user = {
     username: "",
     password: "",
@@ -25,6 +27,7 @@ function Login() {
       event.stopPropagation();
     }
     setValidated(true);
+    dispatch(setAuthenticated(true));
   };
 
   const handleChange = (field, value) => {
@@ -75,16 +78,11 @@ function Login() {
                 </Form.Group>
                 <p className="text-white  fw-semibold d-flex flex-column align-items-center mt-3 ">
                   Non sei ancora registrato?
-                  <Link
-                    className={`nav-link ${location.pathname === "/registrazione" ? "active" : ""}`}
-                    to="/registrazione">
-                    Premi qui
-                  </Link>
+                  <Link to="/registrazione">Premi qui</Link>
                 </p>
               </Row>
               <Row className="my-4 d-flex flex-column align-items-center">
                 <Button
-                  id="coloreRegister"
                   variant="outline-light"
                   style={{ width: "auto" }}
                   onClick={() => {
