@@ -37,63 +37,65 @@ function Login() {
   return (
     <>
       <Row>
-        <Col>
-          <div className="MIX rounded-3 d-flex flex-column  mt-4 mb-3">
-            <Form className="mt-3" noValidate validated={validated} onSubmit={handleSubmit}>
-              <Row className="d-flex flex-column align-items-center mb-3">
-                <Form.Group as={Col} md="4" controlId="validationCustomUsername">
-                  <Form.Label className="text-white label fw-semibold fst-italic">Username</Form.Label>
-                  <InputGroup hasValidation>
-                    <InputGroup.Text id="inputGroupPrepend2">
-                      <ImUser />
-                    </InputGroup.Text>
-                    <Form.Control
-                      className="coloreRegister"
-                      type="text"
-                      placeholder="Username"
-                      aria-describedby="inputGroupPrepend2"
-                      required
-                      onChange={(e) => handleChange("username", e.target.value)}
-                    />
-                    <Form.Control.Feedback type="invalid">Please choose a username.</Form.Control.Feedback>
-                  </InputGroup>
-                </Form.Group>
+        <Col xs={12}>
+          <h4 className="text-center text-success">LOGIN</h4>
 
-                <Form.Group as={Col} md="4" controlId="validationCustomPassword">
-                  <Form.Label className="text-white label fw-semibold fst-italic">Password</Form.Label>
-                  <InputGroup hasValidation>
-                    <InputGroup.Text id="inputGroupPrepend3">
-                      <RiLockPasswordFill />
-                    </InputGroup.Text>
-                    <Form.Control
-                      className="coloreRegister"
-                      type="password"
-                      placeholder="Password"
-                      aria-describedby="inputGroupPrepend3"
-                      required
-                      onChange={(e) => handleChange("password", e.target.value)}
-                    />
-                    <Form.Control.Feedback type="invalid">Please choose a password.</Form.Control.Feedback>
-                  </InputGroup>
-                </Form.Group>
-                <p className="text-white  fw-semibold d-flex flex-column align-items-center mt-3 ">
-                  Non sei ancora registrato?
-                  <Link to="/registrazione">Premi qui</Link>
-                </p>
-              </Row>
-              <Row className="my-4 d-flex flex-column align-items-center">
-                <Button
-                  variant="outline-light"
-                  style={{ width: "auto" }}
-                  onClick={() => {
-                    dispatch(loginUser(input));
-                  }}
-                  className="fw-bolder">
-                  LOGIN
-                </Button>
-              </Row>
-            </Form>
-          </div>
+          <Form
+            noValidate
+            validated={validated}
+            onSubmit={handleSubmit}
+            className="d-flex flex-column align-items-center my-5 text-center">
+            <Form.Group as={Col} md="4" controlId="validationCustomUsername">
+              <Form.Label className="text-white label fw-semibold fst-italic">Username</Form.Label>
+              <InputGroup hasValidation>
+                <InputGroup.Text id="inputGroupPrepend2">
+                  <ImUser />
+                </InputGroup.Text>
+                <Form.Control
+                  type="text"
+                  placeholder="Username"
+                  aria-describedby="inputGroupPrepend2"
+                  required
+                  onChange={(e) => handleChange("username", e.target.value)}
+                />
+                <Form.Control.Feedback type="invalid">Please choose a username.</Form.Control.Feedback>
+              </InputGroup>
+            </Form.Group>
+
+            <Form.Group as={Col} md="4" controlId="validationCustomPassword">
+              <Form.Label className="text-white label fw-semibold fst-italic">Password</Form.Label>
+              <InputGroup hasValidation>
+                <InputGroup.Text id="inputGroupPrepend3">
+                  <RiLockPasswordFill />
+                </InputGroup.Text>
+                <Form.Control
+                  className="coloreRegister"
+                  type="password"
+                  placeholder="Password"
+                  aria-describedby="inputGroupPrepend3"
+                  required
+                  onChange={(e) => handleChange("password", e.target.value)}
+                />
+                <Form.Control.Feedback type="invalid">Please choose a password.</Form.Control.Feedback>
+              </InputGroup>
+            </Form.Group>
+
+            <Button
+              className=" fw-bolder bg-success w-auto border border-0 my-4 d-flex flex-column align-items-center"
+              onClick={() => {
+                dispatch(loginUser(input));
+              }}>
+              Login
+            </Button>
+          </Form>
+        </Col>
+        <Col xs={12}>
+          <p className="fw-semibold d-flex flex-column align-items-center ">
+            Non sei ancora registrato?
+            <Link to="/registrazione" className="text-decoration-none fw-bold text-success ">
+              Premi qui
+            </Link>
+          </p>
         </Col>
       </Row>
     </>

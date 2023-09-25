@@ -5,16 +5,13 @@ function Logout() {
   const dispatch = useDispatch();
   return (
     <Row>
-      <Col>
+      <Col xs={12} className="d-flex justify-content-center">
         <Button
-          id="coloreRegister"
-          variant="outline-light"
-          style={{ width: "auto" }}
+          className=" fw-bolder bg-success w-auto border border-0 my-4 d-flex flex-column align-items-center"
           onClick={() => {
             dispatch(logoutUser());
-          }}
-          className="fw-bolder">
-          LOGOUT
+          }}>
+          Logout
         </Button>
       </Col>
     </Row>
