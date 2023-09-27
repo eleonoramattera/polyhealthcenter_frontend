@@ -1,22 +1,21 @@
 import { Row, Col } from "react-bootstrap";
-import Card from "react-bootstrap/Card";
 import medici from "../../assets/img/mediciChiSiamo.jpg";
 import salaoperatoria from "../../assets/img/salaoperatoria.jpg";
 import mission from "../../assets/img/mission.jpg";
 import ecografia from "../../assets/img/ecografia.jpg";
+import SectionCounter from "../SectionCounter/SectionCounter";
 import "./ChiSiamo.css";
-import SectionCounter from "../SectionCounter";
 
 function ChiSiamo() {
   return (
     <>
-      <Row>
-        <Col>
+      <Row className="d-flex justify-content-evenly">
+        <Col xs={12} className="px-5">
           <SectionCounter />
         </Col>
       </Row>
       <Row className="justify-content-center mt-5 flex-wrap">
-        <Col xs={6} className="pt-4" style={{ textAlign: "justify" }}>
+        <Col xs={6} className="pt-4">
           <p>
             PolyHealth è un'eccellenza nel panorama ospedaliero italiano e internazionale, grazie alla sua costante
             ricerca di innovazione e all'adozione delle più avanzate tecnologie mediche. L'ospedale si distingue per
@@ -31,16 +30,16 @@ function ChiSiamo() {
             paziente, accelerando il recupero e riducendo il rischio di complicazioni.
           </p>
         </Col>
-        <Col className="pb-4">
-          <img src={medici} alt="medici" style={{ width: "100%" }} />
+        <Col xs={6} className="pb-4">
+          <img src={medici} alt="medici" className="w-100" />
         </Col>
       </Row>
 
       <Row>
         <Col xs={6} className="pt-4">
-          <img src={salaoperatoria} alt="sala operatoria" style={{ width: "100%" }} />
+          <img src={salaoperatoria} alt="sala operatoria" className="w-100" />
         </Col>
-        <Col xs={6} className="pt-2" style={{ textAlign: "justify" }}>
+        <Col xs={6} className="pt-2">
           <p>
             Nell'ambito dell'Oculistica, PolyHealth è all'avanguardia nell'impiego di laser di ultima generazione per
             trattare una vasta gamma di patologie oculari, garantendo risultati più precisi e meno invasivi. In
@@ -59,7 +58,7 @@ function ChiSiamo() {
         </Col>
       </Row>
       <Row>
-        <Col xs={6} style={{ textAlign: "justify" }}>
+        <Col xs={6}>
           <h3>LA NOSTRA MISSION</h3>
           <p>
             La missione di migliorare la vita dei nostri pazienti è al centro della nostra filosofia. Ci impegniamo
@@ -70,19 +69,19 @@ function ChiSiamo() {
             metodologie diagnostiche. Il nostro obiettivo è tradurre la ricerca scientifica in soluzioni pratiche per i
             pazienti, migliorando le loro prospettive di guarigione e benessere.
           </p>
-          <img src={mission} alt="mission" style={{ width: "100%" }} />
+          <img src={mission} alt="mission" className="w-100" />
         </Col>
         <Col xs={6} className="mt-4">
-          <img src={ecografia} alt="ecografia" style={{ width: "100%" }} />
+          <img src={ecografia} alt="ecografia" className="w-100" />
         </Col>
-        <Col xs={6} style={{ textAlign: "justify" }} className="mt-3">
+        <Col xs={6} className="mt-3">
           Inoltre, ci dedichiamo alla formazione di una nuova generazione di professionisti della salute. Riconosciamo
           che il futuro della medicina richiede un approccio interdisciplinare e integrato che unisca la clinica, la
           ricerca e l'università. Pertanto, sviluppiamo un modello educativo che incoraggia la collaborazione tra queste
           tre dimensioni. I nostri studenti non solo acquisiscono conoscenze teoriche, ma hanno anche l'opportunità di
           mettere in pratica ciò che imparano nella clinica e di partecipare attivamente alla ricerca.
         </Col>
-        <Col xs={6} style={{ textAlign: "justify" }} className="mt-3">
+        <Col xs={6} className="mt-3">
           In questo modo, ci impegniamo a perseguire la nostra missione di migliorare la vita dei pazienti, contribuendo
           al progresso della medicina e formando una nuova generazione di professionisti preparati a affrontare le sfide
           mediche del futuro. La nostra visione è quella di un sistema sanitario efficace in grado di offrire soluzioni
@@ -90,7 +89,7 @@ function ChiSiamo() {
           impegno costante nell'innovazione e nella ricerca e possiamo realizzare un sistema sanitario all'avanguardia.
         </Col>
       </Row>
-      <Row style={{ textAlign: "justify" }}>
+      <Row>
         <Col xs={12}>
           <h3 className="mt-5 mb-3">I NOSTRI VALORI</h3>
         </Col>
@@ -152,8 +151,6 @@ function ChiSiamo() {
             a basso consumo energetico.
           </p>
         </Col>
-
-        <Col xs={6}></Col>
       </Row>
     </>
   );
