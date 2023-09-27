@@ -4,23 +4,6 @@ import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 function Pren() {
-  const [showLoginMessage, setShowLoginMessage] = useState(false);
-  const isLogged = useSelector((state) => state.auth.isLogged);
-  // Funzione per gestire la visualizzazione del messaggio di login
-  const handleLoginMessage = () => {
-    setShowLoginMessage(true);
-  };
-
-  const handlePrenotazione = () => {
-    // Effettua qui la logica per la prenotazione solo se l'utente è loggato
-    if (isLogged) {
-      // Effettua la prenotazione
-      console.log("Prenotazione effettuata con successo!");
-    } else {
-      // Se l'utente non è loggato, mostra il messaggio di login
-      handleLoginMessage();
-    }
-  };
   ///////////////////////////
   const location = useLocation();
   console.log("LOCATION", location);
@@ -31,7 +14,7 @@ function Pren() {
   const [sede, setSede] = useState("");
   const [nomeUtente, setNomeUtente] = useState("");
   const [cognomeUtente, setCognomeUtente] = useState("");
-  const [emailUtente, setEmailUtente] = useState("");
+  const [usernameUtente, setUsernameUtente] = useState("");
 
   function getFormattedDateTime(date) {
     const year = date.getFullYear();
@@ -43,7 +26,7 @@ function Pren() {
   }
 
   /////////////////
-  /////////////////////////////////
+  /////////////////////////////////terapia
   function handleDateTimeChange(e) {
     const selectedDateTime = e.target.value;
     const selectedDate = selectedDateTime.split("T")[0];
@@ -53,9 +36,7 @@ function Pren() {
       setDataPrenotazione(selectedDateTime);
     } else {
       // Puoi gestire l'errore in qualche modo, come mostrando un messaggio all'utente
-      alert(
-        "La data e l'ora selezionate non sono valide. Siamo aperti dalle 8 alle 19 e non lavoriamo di sabato e domenica."
-      );
+      alert("La data e l'ora selezionate non sono valide. Siamo aperti dal lunedì al venerdì dalle 8 alle 19.");
     }
   }
 
@@ -76,12 +57,12 @@ function Pren() {
   // Funzione di validazione per disabilitare l'ora dalle 19 alle 8
   const formData = {
     id,
-    nomeTerapia,
-    dataPrenotazione,
-    sede,
     nomeUtente,
     cognomeUtente,
-    emailUtente,
+    usernameUtente,
+    nomeTerapia,
+    sede,
+    dataPrenotazione,
   };
 
   const generateRandomId = () => {
@@ -105,7 +86,7 @@ function Pren() {
     }
 
     // Controlli per assicurarsi che tutti i campi siano stati compilati
-    if (!nomeTerapia || !dataPrenotazione || !sede || !nomeUtente || !cognomeUtente || !emailUtente) {
+    if (!nomeTerapia || !dataPrenotazione || !sede || !nomeUtente || !cognomeUtente || !usernameUtente) {
       alert("Tutti i campi sono obbligatori. Assicurati di compilare tutti i campi prima di procedere.");
       return;
     }
@@ -120,12 +101,12 @@ function Pren() {
 
       if (response.ok) {
         alert("PRENOTAZIONE SALVATA CORRETTAMENTE!");
-        setNomeTerapia("");
-        setDataPrenotazione("");
-        setSede("");
         setNomeUtente("");
         setCognomeUtente("");
-        setEmailUtente("");
+        setUsernameUtente("");
+        setNomeTerapia("");
+        setSede("");
+        setDataPrenotazione("");
       } else {
         alert("ERRORE!");
         console.log("errore nella chiamata :(");
@@ -161,6 +142,16 @@ function Pren() {
 
   return (
     <Container>
+      <Row>
+        <Col>
+          <Link to="/prenotazioniList">
+            <Button
+              style={{ backgroundColor: "#2b5453", border: "none", position: "absolute", top: "6em", right: "5em" }}>
+              Le mie prenotazioni
+            </Button>
+          </Link>
+        </Col>
+      </Row>
       <Row className="justify-content-center mt-5">
         <Col xs={12} md={8} lg={6}>
           <h2>PRENOTA </h2>
@@ -170,6 +161,7 @@ function Pren() {
               console.log("STO PER INVIARE IL FORM!");
               console.log("i dati sono già pronti nello state:", formData);
               sendReservation();
+              <Link to="/prenotazionilist">vai </Link>;
             }}>
             <Form.Group className="mb-3">
               <Form.Label> Numero Prenotazione</Form.Label>
@@ -198,22 +190,15 @@ function Pren() {
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Inserisci la tue Email</Form.Label>
+              <Form.Label>Inserisci il tuo username</Form.Label>
               <Form.Control
-                type="email"
-                placeholder="email"
+                type="text"
+                placeholder="username"
                 required
-                value={emailUtente}
-                onChange={(e) => setEmailUtente(e.target.value)}
+                value={usernameUtente}
+                onChange={(e) => setUsernameUtente(e.target.value)}
               />
             </Form.Group>
-            {/*  <div>
-              <label>
-                Numero Prenotazione
-                <input type="number" value={id} readOnly disabled />
-                {/* <input type="text" value={id} onChange={(e) => setId(e.target.value)} />
-              </label>
-            </div>*/}
 
             <Form.Group className="mb-3">
               <Form.Label>Terapia</Form.Label>
@@ -349,29 +334,10 @@ function Pren() {
               </Form.Select>
             </Form.Group>
 
-            {/* <div>
-              <label>
-                Email:
-                <input type="email" value={emailUtente} onChange={(e) => setEmailUtente(e.target.value)} />
-              </label>
-            </div>
-            */}
-
             <Button style={{ backgroundColor: "#2b5453", border: "none" }} type="submit">
               PRENOTA!
             </Button>
           </Form>
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Link to="/lemieprenotazioni">
-            <Button
-              style={{ backgroundColor: "#2b5453", border: "none", position: "absolute", top: "135px", right: "12px" }}>
-              Le mie prenotazioni
-            </Button>
-          </Link>
-          {/*   <LeMiePrenotazioni pre={pre} /> */}
         </Col>
       </Row>
     </Container>
