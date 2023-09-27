@@ -1,18 +1,3 @@
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 /*CUSTOM CSS*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
@@ -20,6 +5,7 @@ body,
 html {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  text-align: justify;
 }
 
 .navbar-nav .nav-link.active,
@@ -54,12 +40,6 @@ html {
   width: 0;
 }
 
-.pSectionCounter {
-  margin: 0;
-  padding: 0;
-  font-weight: bold;
-}
-
 .leafleat-container {
   background-color: red;
   height: 200px;
@@ -79,9 +59,11 @@ html {
 }
 
 .custom-border {
-  box-shadow: inset 0px 0px 0px 4px #8effa9;
+  box-shadow: inset 0px 0px 0px 4px rgb(41 86 81);
 }
-
+.custom-border-default {
+  box-shadow: inset 0px 0px 0px 4px rgb(141, 255, 168);
+}
 .sfocato {
   width: 270px;
   background-color: #8dffa8;
