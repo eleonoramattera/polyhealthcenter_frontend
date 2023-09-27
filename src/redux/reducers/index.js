@@ -1,9 +1,9 @@
-import { ADD_TOKEN, USER, USERNAME_USER } from "../actions";
+import { ADD_TOKEN, USER, USERNAME_USER, SET_AUTHENTICATED } from "../actions";
 
 const initialState = {
   token: "",
   username: "",
-
+  isAuthenticated: false,
   user: {},
 };
 
@@ -24,6 +24,11 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         user: action.payload,
+      };
+    case SET_AUTHENTICATED:
+      return {
+        ...state,
+        isAuthenticated: action.payload,
       };
 
     default:
