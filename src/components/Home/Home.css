@@ -1,36 +1,27 @@
 .firstColHome {
   box-sizing: border-box;
-  background-image: url(../../assets/img/B.png);
+  background-image: url(../../assets/img/tablet.png);
   background-repeat: no-repeat;
   height: 40rem;
   margin-left: 2em;
-  text-align: center;
+
   display: flex;
   margin-top: 2em;
-  position: relative;
 }
 
+h1 {
+  margin-left: 4em;
+}
 .firstColHome p {
   vertical-align: middle;
   font-size: 1.5em;
   line-height: 1.7em;
+  margin-left: 6em;
 }
-
-.firstColHome div:nth-child(2) {
-  width: 600px;
-  text-align: justify;
-  margin: 5em 0 0 2em;
-  font-size: 1.2em;
-  line-height: 1.5em;
-}
-
-.secondColHome {
-  width: 38%;
-}
-
-.firstColHome > img {
+/*  */
+.secondColHome > img {
   width: 30%;
-  margin-top: 4em;
+  margin-top: 8em;
   position: absolute;
   top: 0;
   right: 5em;
