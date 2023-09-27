@@ -33,9 +33,6 @@ function CustomNav() {
           <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} to="/prenotazioni">
             Prenotazioni
           </Link>
-          <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} to="/registerpage">
-            Registrazione
-          </Link>
 
           <Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} to="/logout">
             Logout
