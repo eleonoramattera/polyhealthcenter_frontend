@@ -18,20 +18,6 @@ html {
   --bs-nav-link-disabled-color: white;
 }
 
-.dropdown-menu {
-  --bs-dropdown-bg: #8effa9;
-  --bs-dropdown-border-width: 0px;
-  position: absolute;
-}
-
-.dropdown-menu.show {
-  display: block;
-  position: relative;
-  top: 45px;
-  left: -143px;
-  margin-top: 0px;
-}
-
 .nav-item.show.dropdown {
   height: 20px;
 }
@@ -41,7 +27,6 @@ html {
 }
 
 .leafleat-container {
-  background-color: red;
   height: 200px;
 }
 
