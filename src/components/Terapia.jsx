@@ -7,7 +7,7 @@ const Terapia = ({ terapia, changeTerapia, terapiaSelected }) => (
     style={{ cursor: "pointer" }}>
     <Card.Body className="d-flex justify-content-center">
       <div className="terapie">
-        <Card.Text style={{ fontWeight: "bold" }}>{terapia.nome}</Card.Text>
+        <Card.Text className="fw-bold">{terapia.nome}</Card.Text>
         <p>{terapia.prezzo}€</p>
       </div>
     </Card.Body>
